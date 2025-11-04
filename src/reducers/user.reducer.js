@@ -1,4 +1,4 @@
-const initialState = {user: "from scratch"};
+const initialState = {};
 
 export default function userReducer(state = initialState, action) {
 	switch (action.type) {

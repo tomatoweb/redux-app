@@ -5,6 +5,7 @@ import "./styles/index.scss";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./reducers/index.js";
+import { fetchPosts } from "./actions/post.action.js";
 
 const store = configureStore({
 	reducer: rootReducer,
@@ -14,9 +15,10 @@ const store = configureStore({
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
+store.dispatch(fetchPosts());
+
 root.render(
 <Provider store={store}>
 	<App />
-</Provider>, 
-document.getElementById("root")
+</Provider>
 );
