@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import {createRoot} from 'react-dom/client';
 import App from "./App";
 import "./styles/index.scss";
@@ -15,10 +15,13 @@ const store = configureStore({
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
+// 
 store.dispatch(fetchPosts());
 
 root.render(
 <Provider store={store}>
-	<App />
+	<StrictMode>
+		<App />
+	</StrictMode>
 </Provider>
 );
